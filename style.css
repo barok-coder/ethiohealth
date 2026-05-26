@@ -9,7 +9,7 @@ body {
   font-family: "Plus Jakarta Sans", sans-serif;
   background-color: #fcfbfa;
   background-image: url("images/bk-img.png");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: right center;
   background-attachment: scroll;
