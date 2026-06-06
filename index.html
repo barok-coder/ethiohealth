@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EthioHealth Shop</title>
+    <title>EthioHealth Shop | Premium Wellness & Care</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,104 +13,253 @@
     />
 
     <link rel="stylesheet" href="style.css" />
+    
     <script
       src="https://kit.fontawesome.com/3f906d219e.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
+
+    <button id="scrollTopBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <div class="cart-drawer-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-drawer-header">
+        <h3>Your Shopping Cart (<span id="cartDrawerCount">0</span>)</h3>
+        <button class="close-drawer-btn" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="cart-drawer-items" id="cartDrawerItems">
+        <div class="empty-cart-msg">Your cart is currently empty.</div>
+      </div>
+      <div class="cart-drawer-footer">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">0.00 ETB</span>
+        </div>
+        <div class="cart-summary-row delivery-row">
+          <span>Delivery</span>
+          <span class="free-text">FREE Standard</span>
+        </div>
+        <button class="checkout-btn" onclick="alert('Checkout integration coming soon!')">
+          Proceed to Secure Checkout &nbsp;<i class="fa-solid fa-lock"></i>
+        </button>
+      </div>
+    </div>
+
     <nav>
-      <div class="logo">
+      <div class="logo" onclick="navigateToSection('home')">
         <i class="fa-solid fa-bag-shopping"></i>&nbsp;ethiohealth
         <span class="logo-sub">SHOP</span>
       </div>
 
-      <ul class="nav-links">
-        <li>
-          <a href="#"
-            >Shop <i class="fa-solid fa-chevron-down nav-arrow"></i
-          ></a>
-        </li>
-        <li>
-          <a href="#"
-            >Categories <i class="fa-solid fa-chevron-down nav-arrow"></i
-          ></a>
-        </li>
-        <li><a href="#">Deals</a></li>
-        <li><a href="#">New Arrivals</a></li>
-        <li><a href="#">About Us</a></li>
+      <div class="mobile-menu-toggle" id="mobileMenuBtn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <ul class="nav-links" id="navLinksMenu">
+        <li><a href="#home" class="nav-item active" onclick="navigateToSection('home')">Home</a></li>
+        <li><a href="#shop" class="nav-item" onclick="navigateToSection('shop')">Shop</a></li>
+        <li><a href="#categories" class="nav-item" onclick="navigateToSection('categories')">Categories</a></li>
+        <li><a href="#deals" class="nav-item" onclick="navigateToSection('deals')">Deals</a></li>
+        <li><a href="#new-arrivals" class="nav-item" onclick="navigateToSection('new-arrivals')">New Arrivals</a></li>
+        <li><a href="#about" class="nav-item" onclick="navigateToSection('about')">About Us</a></li>
       </ul>
 
       <div class="nav-icons">
-        <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-        <a href="#"><i class="fa-solid fa-user"></i></a>
-        <a href="#" class="cart-icon"
-          ><i class="fa-solid fa-cart-shopping"></i
-          ><span class="cart-badge">2</span></a
-        >
+        <a href="#shop" onclick="navigateToSection('shop'); focusSearch();" title="Search"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#account" onclick="alert('User accounts feature coming soon!')" title="Account"><i class="fa-solid fa-user"></i></a>
+        <a href="javascript:void(0)" class="cart-icon" id="openCartBtn" title="View Cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-badge" id="navCartBadge">0</span>
+        </a>
       </div>
     </nav>
 
-    <section class="working-body">
-      <div class="hero-content">
-        <p class="p1">
-          <i class="fa-solid fa-leaf"></i> Quality you trust. Wellness you
-          deserve.
-        </p>
-        <h1 class="p2">
-          Better products.<br />Better living.<br /><span class="highlight"
-            >Delivered to you.</span
-          >
-        </h1>
-        <p class="p3">
-          Discover premium health, beauty, and wellness products carefully
-          selected for a healthier you.
-        </p>
+    <main id="mainAppContainer">
+      
+      <div id="view-home" class="app-view active-view animate-fade-in">
+        <section class="working-body">
+          <div class="hero-content">
+            <p class="p1">
+              <i class="fa-solid fa-leaf"></i> Quality you trust. Wellness you deserve.
+            </p>
+            <h1 class="p2">
+              Better products.<br />Better living.<br /><span class="highlight">Delivered to you.</span>
+            </h1>
+            <p class="p3">
+              Discover premium health, beauty, and wellness products carefully selected for a healthier you.
+            </p>
 
-        <div class="cta-buttons">
-          <button class="btn-primary">
-            <i class="fa-solid fa-bag-shopping"></i>&nbsp;&nbsp;Shop Now
-            &nbsp;<i class="fa-solid fa-arrow-right standard-arrow"></i>
-          </button>
-          <button class="btn-secondary">
-            <i class="fa-solid fa-border-all"></i>&nbsp;&nbsp;Explore Categories
-          </button>
-        </div>
-      </div>
-    </section>
+            <div class="cta-buttons">
+              <button class="btn-primary" onclick="navigateToSection('shop')">
+                <i class="fa-solid fa-bag-shopping"></i>&nbsp;&nbsp;Shop Now
+                &nbsp;<i class="fa-solid fa-arrow-right standard-arrow"></i>
+              </button>
+              <button class="btn-secondary" onclick="navigateToSection('categories')">
+                <i class="fa-solid fa-border-all"></i>&nbsp;&nbsp;Explore Categories
+              </button>
+            </div>
+          </div>
+        </section>
 
-    <section class="trust-section">
-      <div class="card-wrapper">
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <div class="card-text">
-            <strong>100% Authentic</strong>
-            <p>Genuine products you can trust</p>
+        <section class="trust-section">
+          <div class="card-wrapper">
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="card-text">
+                <strong>100% Authentic</strong>
+                <p>Genuine products you can trust</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-truck"></i></div>
+              <div class="card-text">
+                <strong>Fast Delivery</strong>
+                <p>Quick & reliable delivery nationwide</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+              <div class="card-text">
+                <strong>Easy Returns</strong>
+                <p>Hassle-free returns within 7 days</p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
+              <div class="card-text">
+                <strong>Secure Payments</strong>
+                <p>Safe & secure checkout</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-truck"></i></div>
-          <div class="card-text">
-            <strong>Fast Delivery</strong>
-            <p>Quick & reliable delivery nationwide</p>
+        </section>
+
+        <section class="featured-banner-section">
+          <div class="promo-card scheme-green">
+            <h3>Natural Ingredients</h3>
+            <p>Formulated directly from nature's absolute best botanical sources.</p>
+            <a href="#shop" onclick="navigateToSection('shop')" class="promo-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
-          <div class="card-text">
-            <strong>Easy Returns</strong>
-            <p>Hassle-free returns within 7 days</p>
+          <div class="promo-card scheme-gold">
+            <h3>Expert Approved</h3>
+            <p>Our complete collection is certified by certified regional practitioners.</p>
+            <a href="#about" onclick="navigateToSection('about')" class="promo-link">Our Standards <i class="fa-solid fa-arrow-right"></i></a>
           </div>
-        </div>
-        <div class="card">
-          <div class="card-icon"><i class="fa-solid fa-lock"></i></div>
-          <div class="card-text">
-            <strong>Secure Payments</strong>
-            <p>Safe & secure checkout</p>
-          </div>
-        </div>
+        </section>
       </div>
-    </section>
+
+      <div id="view-shop" class="app-view hide-view animate-fade-in">
+        <section class="internal-view-header">
+          <h2>Our Complete Catalog</h2>
+          <p>Browse through our premium selection of medical essentials, supplements, and beauty care.</p>
+          
+          <div class="search-filter-hub">
+            <div class="search-input-wrapper">
+              <i class="fa-solid fa-magnifying-glass search-bar-icon"></i>
+              <input type="text" id="catalogSearchField" placeholder="Search products across all departments..." onkeyup="executeCatalogSearch()" />
+              <button class="clear-search-btn" id="clearSearchBtn" onclick="resetCatalogSearch()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="filter-dropdown-wrapper">
+              <select id="catalogSortSelect" onchange="executeCatalogSearch()">
+                <option value="default">Default Ranking</option>
+                <option value="low-high">Price: Low to High</option>
+                <option value="high-low">Price: High to Low</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="products-showcase-grid" id="productsDisplayGrid">
+          </section>
+      </div>
+
+      <div id="view-categories" class="app-view hide-view animate-fade-in">
+        <section class="internal-view-header">
+          <h2>Shop by Category</h2>
+          <p>Find customized target solutions arranged perfectly by health department priorities.</p>
+        </section>
+
+        <section class="categories-selection-strip">
+          <button class="cat-pill active" onclick="filterByCategory('all', this)">All Sectors</button>
+          <button class="cat-pill" onclick="filterByCategory('Supplements', this)">Supplements</button>
+          <button class="cat-pill" onclick="filterByCategory('Skincare', this)">Skincare</button>
+          <button class="cat-pill" onclick="filterByCategory('Medical', this)">Medical Devices</button>
+          <button class="cat-pill" onclick="filterByCategory('Fitness', this)">Fitness & Nutrition</button>
+        </section>
+
+        <section class="products-showcase-grid" id="categoriesDisplayGrid">
+          </section>
+      </div>
+
+      <div id="view-deals" class="app-view hide-view animate-fade-in">
+        <section class="deals-hero-strip">
+          <div class="deals-banner-content">
+            <span class="badge-accent">Limited Time Offers</span>
+            <h2>Exclusive Seasonal Discounts</h2>
+            <p>Save massive amounts on essential items this week. High quality care metrics, affordable delivery scales.</p>
+          </div>
+        </section>
+
+        <section class="products-showcase-grid" id="dealsDisplayGrid">
+          </section>
+      </div>
+
+      <div id="view-new-arrivals" class="app-view hide-view animate-fade-in">
+        <section class="internal-view-header">
+          <div class="new-tag-sparkle"><i class="fa-solid fa-sparkles"></i> Just Launched</div>
+          <h2>The Latest Innovations</h2>
+          <p>Explore recently added formulations, innovative smart health tech systems, and modern premium items.</p>
+        </section>
+
+        <section class="products-showcase-grid" id="newArrivalsDisplayGrid">
+          </section>
+      </div>
+
+      <div id="view-about" class="app-view hide-view animate-fade-in">
+        <section class="about-hero-layout">
+          <div class="about-hero-text">
+            <h2>Pioneering Digital Wellness Across Ethiopia</h2>
+            <p>Founded with a singular mission: to make world-class health, pharmaceutical care, beauty regimes, and medical maintenance gear reachable seamlessly with the tap of a screen.</p>
+            <p>We source all inventories through stringent regulatory pathways ensuring safety, consistency, validation, and quality levels you can structurally depend on for your family's longevity benchmarks.</p>
+          </div>
+          <div class="about-hero-metrics">
+            <div class="metric-block">
+              <h3>15K+</h3>
+              <p>Satisfied Clients</p>
+            </div>
+            <div class="metric-block">
+              <h3>100%</h3>
+              <p>Authentic Track</p>
+            </div>
+            <div class="metric-block">
+              <h3>24/7</h3>
+              <p>Care Advisory</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="corporate-values-hub">
+          <div class="value-card">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <h4>Patient First Ethics</h4>
+            <p>We build our delivery, support loops, and inventory selections tracking client health outcomes above all commercial scales.</p>
+          </div>
+          <div class="value-card">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h4>Scientific Rigor</h4>
+            <p>Every single cosmetic serum, organic herbal compound, or clinical tracking monitor is checked by technical specialists.</p>
+          </div>
+          <div class="value-card">
+            <i class="fa-solid fa-handshake"></i>
+            <h4>Community Growth</h4>
+            <p>Proudly investing parts of logistical infrastructure networks to elevate peripheral digital wellness supply lines nationwide.</p>
+          </div>
+        </section>
+      </div>
+
+    </main>
 
     <footer>
       <div class="footer-container">
@@ -119,8 +268,7 @@
             <i class="fa-solid fa-bag-shopping"></i>&nbsp;ethiohealth
           </div>
           <p>
-            Your trusted destination for premium health, beauty, and complete
-            wellness essentials.
+            Your trusted destination for premium health, beauty, and complete wellness essentials.
           </p>
           <div class="social-icons">
             <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -133,32 +281,32 @@
         <div class="footer-links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#">Shop All</a></li>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Latest Offers</a></li>
-            <li><a href="#">Blogs & Insights</a></li>
+            <li><a href="#shop" onclick="navigateToSection('shop')">Shop All</a></li>
+            <li><a href="#about" onclick="navigateToSection('about')">Our Story</a></li>
+            <li><a href="#deals" onclick="navigateToSection('deals')">Latest Offers</a></li>
+            <li><a href="#new-arrivals" onclick="navigateToSection('new-arrivals')">Blogs & Insights</a></li>
           </ul>
         </div>
 
         <div class="footer-links">
           <h3>Customer Care</h3>
           <ul>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Shipping Policy</a></li>
-            <li><a href="#">Track Order</a></li>
-            <li><a href="#">FAQs</a></li>
+            <li><a href="#about" onclick="navigateToSection('about')">Contact Us</a></li>
+            <li><a href="#home" onclick="navigateToSection('home')">Shipping Policy</a></li>
+            <li><a href="#home" onclick="navigateToSection('home')">Track Order</a></li>
+            <li><a href="#home" onclick="navigateToSection('home')">FAQs</a></li>
           </ul>
         </div>
 
         <div class="footer-newsletter">
           <h3>Stay Updated</h3>
           <p>Subscribe to get exclusive offers and wellness tips.</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="Enter your email" />
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!'); this.reset();">
+            <input type="email" placeholder="Enter your email" required />
             <button type="submit">
               <i class="fa-solid fa-paper-plane"></i>
             </button>
-          </div>
+          </form>
         </div>
       </div>
 
@@ -166,5 +314,400 @@
         <p>&copy; 2026 EthioHealth Shop. All rights reserved.</p>
       </div>
     </footer>
+
+    <script>
+      // 1. COMPREHENSIVE DATA CATALOG OBJECTS ARRAY
+      const PRODUCTS_DATA = [
+        {
+          id: "p1",
+          title: "Organic Omega-3 Premium Fish Oil",
+          price: 1450,
+          originalPrice: 1850,
+          category: "Supplements",
+          isNew: false,
+          isDeal: true,
+          rating: 4.8,
+          imgIcon: "fa-capsules",
+          desc: "High potency cardiovascular support capsules enriched with clean wild-caught arctic lipids."
+        },
+        {
+          id: "p2",
+          title: "Advanced Hydration Hyaluronic Acid",
+          price: 2100,
+          originalPrice: 2100,
+          category: "Skincare",
+          isNew: true,
+          isDeal: false,
+          rating: 4.9,
+          imgIcon: "fa-pump-medical",
+          desc: "Pure structural botanical hydration matrix that actively removes facial fine lines flawlessly."
+        },
+        {
+          id: "p3",
+          title: "Digital Automatic Blood Pressure Monitor",
+          price: 4800,
+          originalPrice: 5500,
+          category: "Medical",
+          isNew: false,
+          isDeal: true,
+          rating: 4.7,
+          imgIcon: "fa-heart-pulse",
+          desc: "Clinical accuracy reading metrics with standard comfortable arm cuff tracking mechanisms."
+        },
+        {
+          id: "p4",
+          title: "Plant-Based Isolate Vegan Protein",
+          price: 3600,
+          originalPrice: 3600,
+          category: "Fitness",
+          isNew: true,
+          isDeal: false,
+          rating: 4.6,
+          imgIcon: "fa-dumbbell",
+          desc: "Pre-digested amino acid spectrum designed flawlessly for clean performance recoveries."
+        },
+        {
+          id: "p5",
+          title: "Daily Multi-Vitamin & Zinc Complex",
+          price: 950,
+          originalPrice: 1200,
+          category: "Supplements",
+          isNew: false,
+          isDeal: true,
+          rating: 4.9,
+          imgIcon: "fa-tablets",
+          desc: "Essential metabolic co-factors designed meticulously to trigger robust immune responses."
+        },
+        {
+          id: "p6",
+          title: "Vitamin C Radiance Clarifying Serum",
+          price: 1850,
+          originalPrice: 1850,
+          category: "Skincare",
+          isNew: true,
+          isDeal: false,
+          rating: 4.5,
+          imgIcon: "fa-droplet",
+          desc: "Potent anti-oxidant configurations providing natural dermal brightness barriers daily."
+        },
+        {
+          id: "p7",
+          title: "Infrared Non-Contact Smart Thermometer",
+          price: 3200,
+          originalPrice: 3900,
+          category: "Medical",
+          isNew: false,
+          isDeal: true,
+          rating: 4.8,
+          imgIcon: "fa-temperature-high",
+          desc: "One-second thermal mapping system perfect for rapid children scan routines."
+        },
+        {
+          id: "p8",
+          title: "Electrolyte Hydration Performance Fuel",
+          price: 1100,
+          originalPrice: 1100,
+          category: "Fitness",
+          isNew: true,
+          isDeal: false,
+          rating: 4.4,
+          imgIcon: "fa-bolt",
+          desc: "Rapid cellular osmotic recharging compound to completely eliminate fatigue cycles."
+        }
+      ];
+
+      // 2. CENTRAL SHOPPING CART STATE MANAGEMENT
+      let shoppingCartState = [];
+
+      // 3. INITIALIZATION BOOTSTRAP EVENT LIFECYCLE
+      document.addEventListener("DOMContentLoaded", () => {
+        renderProductGrids();
+        setupEventListeners();
+        handleUrlRouting();
+      });
+
+      // 4. ROUTING & SPA COMPONENT NAVIGATION CONTROLLER
+      function navigateToSection(targetSectionId) {
+        // Toggle view visibility classes safely
+        const sections = document.querySelectorAll(".app-view");
+        sections.forEach(sec => {
+          if(sec.id === `view-${targetSectionId}`) {
+            sec.classList.remove("hide-view");
+            sec.classList.add("active-view");
+          } else {
+            sec.classList.remove("active-view");
+            sec.classList.add("hide-view");
+          }
+        });
+
+        // Toggle active menu highlight visual cues
+        const navItems = document.querySelectorAll(".nav-item");
+        navItems.forEach(item => {
+          if(item.getAttribute("href") === `#${targetSectionId}`) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+
+        // Close Mobile Panel Drawer in case change triggered via smartphone layouts
+        document.getElementById("navLinksMenu").classList.remove("mobile-open");
+
+        // Smooth window repositioning action mechanics
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function handleUrlRouting() {
+        const hash = window.location.hash.replace("#", "");
+        if(["home", "shop", "categories", "deals", "new-arrivals", "about"].includes(hash)) {
+          navigateToSection(hash);
+        }
+      }
+
+      function focusSearch() {
+        setTimeout(() => {
+          const searchInput = document.getElementById("catalogSearchField");
+          if(searchInput) searchInput.focus();
+        }, 150);
+      }
+
+      // 5. DATA RENDERING FACTORY GENERATORS
+      function buildProductCardHtml(prod) {
+        const discountPercentage = prod.isDeal ? Math.round(((prod.originalPrice - prod.price) / prod.originalPrice) * 100) : 0;
+        
+        return `
+          <div class="product-item-card animate-fade-in">
+            <div class="card-image-placeholder">
+              <i class="fa-solid ${prod.imgIcon} catalog-fallback-icon"></i>
+              ${prod.isDeal ? `<span class="badge-discount">-${discountPercentage}% OFF</span>` : ""}
+              ${prod.isNew ? `<span class="badge-new">NEW</span>` : ""}
+            </div>
+            <div class="product-card-details">
+              <span class="product-meta-cat">${prod.category}</span>
+              <div class="product-rating-line">
+                <i class="fa-solid fa-star"></i> <span>${prod.rating}</span>
+              </div>
+              <h4 class="product-title-text">${prod.title}</h4>
+              <p class="product-short-desc">${prod.desc}</p>
+              <div class="product-pricing-footer-line">
+                <div class="price-stack">
+                  <span class="current-amt">${prod.price.toLocaleString()} ETB</span>
+                  ${prod.isDeal ? `<span class="crossed-amt">${prod.originalPrice.toLocaleString()} ETB</span>` : ""}
+                </div>
+                <button class="add-to-cart-action-btn" onclick="addItemToCartEngine('${prod.id}')" title="Add Item">
+                  <i class="fa-solid fa-plus"></i> Add
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderProductGrids() {
+        // Build Base Catalog Shop Grid Matrix Elements
+        const shopGrid = document.getElementById("productsDisplayGrid");
+        if(shopGrid) {
+          shopGrid.innerHTML = PRODUCTS_DATA.map(buildProductCardHtml).join("");
+        }
+
+        // Build Initial Categories Tab View Setups
+        const catGrid = document.getElementById("categoriesDisplayGrid");
+        if(catGrid) {
+          catGrid.innerHTML = PRODUCTS_DATA.map(buildProductCardHtml).join("");
+        }
+
+        // Filter and Build Deals Component Matrix
+        const dealsGrid = document.getElementById("dealsDisplayGrid");
+        if(dealsGrid) {
+          const dealItems = PRODUCTS_DATA.filter(p => p.isDeal);
+          dealsGrid.innerHTML = dealItems.map(buildProductCardHtml).join("");
+        }
+
+        // Filter and Build New Arrivals Dynamic View
+        const newGrid = document.getElementById("newArrivalsDisplayGrid");
+        if(newGrid) {
+          const newItems = PRODUCTS_DATA.filter(p => p.isNew);
+          newGrid.innerHTML = newItems.map(buildProductCardHtml).join("");
+        }
+      }
+
+      // 6. MULTI-PAGE LIVE TEXT FILTER SEARCH MECHANICS
+      function executeCatalogSearch() {
+        const queryText = document.getElementById("catalogSearchField").value.toLowerCase().trim();
+        const sortingStrategy = document.getElementById("catalogSortSelect").value;
+        const clearBtn = document.getElementById("clearSearchBtn");
+
+        if(queryText.length > 0) {
+          clearBtn.style.display = "flex";
+        } else {
+          clearBtn.style.display = "none";
+        }
+
+        // Core filter mechanism mapping across multiple textual variables simultaneously
+        let workingSubset = PRODUCTS_DATA.filter(item => {
+          return item.title.toLowerCase().includes(queryText) || 
+                 item.category.toLowerCase().includes(queryText) || 
+                 item.desc.toLowerCase().includes(queryText);
+        });
+
+        // Run sequential sorting criteria
+        if(sortingStrategy === "low-high") {
+          workingSubset.sort((a,b) => a.price - b.price);
+        } else if (sortingStrategy === "high-low") {
+          workingSubset.sort((a,b) => b.price - a.price);
+        }
+
+        const shopGrid = document.getElementById("productsDisplayGrid");
+        if(workingSubset.length === 0) {
+          shopGrid.innerHTML = `
+            <div class="no-search-results-box">
+              <i class="fa-solid fa-magnifying-glass-blur"></i>
+              <h4>No matching wellness products found</h4>
+              <p>Try adapting your keyphrase options or clearing filters entirely.</p>
+            </div>
+          `;
+        } else {
+          shopGrid.innerHTML = workingSubset.map(buildProductCardHtml).join("");
+        }
+      }
+
+      function resetCatalogSearch() {
+        document.getElementById("catalogSearchField").value = "";
+        document.getElementById("catalogSortSelect").value = "default";
+        executeCatalogSearch();
+      }
+
+      // 7. INTERACTIVE DRIVEN CATEGORIES FILTER PILLS
+      function filterByCategory(targetCategoryName, buttonContext) {
+        // Toggle selected active state highlights
+        const pills = document.querySelectorAll(".cat-pill");
+        pills.forEach(p => p.classList.remove("active"));
+        buttonContext.classList.add("active");
+
+        const targetGrid = document.getElementById("categoriesDisplayGrid");
+        
+        if(targetCategoryName === 'all') {
+          targetGrid.innerHTML = PRODUCTS_DATA.map(buildProductCardHtml).join("");
+        } else {
+          const filteredSet = PRODUCTS_DATA.filter(p => p.category === targetCategoryName);
+          targetGrid.innerHTML = filteredSet.map(buildProductCardHtml).join("");
+        }
+      }
+
+      // 8. SHOPPING CART ENGINE COMPUTATIONS
+      function addItemToCartEngine(productId) {
+        const matchProduct = PRODUCTS_DATA.find(p => p.id === productId);
+        if(!matchProduct) return;
+
+        const dynamicCartIndex = shoppingCartState.findIndex(item => item.id === productId);
+
+        if(dynamicCartIndex > -1) {
+          shoppingCartState[dynamicCartIndex].quantity += 1;
+        } else {
+          shoppingCartState.push({
+            id: matchProduct.id,
+            title: matchProduct.title,
+            price: matchProduct.price,
+            imgIcon: matchProduct.imgIcon,
+            quantity: 1
+          });
+        }
+
+        refreshCartUIRenderings();
+        triggerCartDrawerOpenAnimation();
+      }
+
+      function alterCartItemQty(productId, deltaValue) {
+        const itemIdx = shoppingCartState.findIndex(item => item.id === productId);
+        if(itemIdx === -1) return;
+
+        shoppingCartState[itemIdx].quantity += deltaValue;
+
+        if(shoppingCartState[itemIdx].quantity <= 0) {
+          shoppingCartState.splice(itemIdx, 1);
+        }
+
+        refreshCartUIRenderings();
+      }
+
+      function dropItemFromCartEntirely(productId) {
+        shoppingCartState = shoppingCartState.filter(item => item.id !== productId);
+        refreshCartUIRenderings();
+      }
+
+      function refreshCartUIRenderings() {
+        // Deduce cumulative items aggregate count metrics
+        const netQuantity = shoppingCartState.reduce((total, object) => total + object.quantity, 0);
+        
+        // Push counts to layout display badges
+        document.getElementById("navCartBadge").innerText = netQuantity;
+        document.getElementById("cartDrawerCount").innerText = netQuantity;
+
+        // Formulate mathematical subtotal summation parameters
+        const cashSubtotal = shoppingCartState.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        document.getElementById("cartSubtotal").innerText = `${cashSubtotal.toLocaleString()} ETB`;
+
+        // Render line items to layout structure
+        const trayContainer = document.getElementById("cartDrawerItems");
+        
+        if(shoppingCartState.length === 0) {
+          trayContainer.innerHTML = `<div class="empty-cart-msg">Your cart is currently empty.</div>`;
+          return;
+        }
+
+        trayContainer.innerHTML = shoppingCartState.map(item => `
+          <div class="cart-drawer-item-row animate-fade-in">
+            <div class="mini-item-avatar"><i class="fa-solid ${item.imgIcon}"></i></div>
+            <div class="mini-item-details-block">
+              <h5>${item.title}</h5>
+              <span class="unit-pricing-label">${item.price.toLocaleString()} ETB</span>
+              <div class="qty-counter-housing">
+                <button onclick="alterCartItemQty('${item.id}', -1)"><i class="fa-solid fa-minus"></i></button>
+                <span class="qty-num-indicator">${item.quantity}</span>
+                <button onclick="alterCartItemQty('${item.id}', 1)"><i class="fa-solid fa-plus"></i></button>
+              </div>
+            </div>
+            <button class="remove-row-trash-btn" onclick="dropItemFromCartEntirely('${item.id}')" title="Delete"><i class="fa-solid fa-trash-can"></i></button>
+          </div>
+        `).join("");
+      }
+
+      // 9. ANIMATION DRAWER TRANSITION EFFECTS CONTROLLERS
+      function triggerCartDrawerOpenAnimation() {
+        document.getElementById("cartDrawer").classList.add("drawer-open");
+        document.getElementById("cartOverlay").classList.add("overlay-active");
+      }
+
+      function triggerCartDrawerCloseAnimation() {
+        document.getElementById("cartDrawer").classList.remove("drawer-open");
+        document.getElementById("cartOverlay").classList.remove("overlay-active");
+      }
+
+      function setupEventListeners() {
+        // Desktop Cart Toggle Button Triggers
+        document.getElementById("openCartBtn").addEventListener("click", triggerCartDrawerOpenAnimation);
+        document.getElementById("closeCartBtn").addEventListener("click", triggerCartDrawerCloseAnimation);
+        document.getElementById("cartOverlay").addEventListener("click", triggerCartDrawerCloseAnimation);
+
+        // Mobile Menu View Interventions
+        document.getElementById("mobileMenuBtn").addEventListener("click", () => {
+          document.getElementById("navLinksMenu").classList.toggle("mobile-open");
+        });
+
+        // Global Scroll to Top Button Action Parameters
+        const scrollTopButton = document.getElementById("scrollTopBtn");
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 400) {
+            scrollTopButton.classList.add("reveal-btn");
+          } else {
+            scrollTopButton.classList.remove("reveal-btn");
+          }
+        });
+
+        scrollTopButton.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+    </script>
   </body>
 </html>
