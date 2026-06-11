@@ -280,7 +280,7 @@ button {
 /* ================= TRUST BADGES ================= */
 .trust-section {
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 0 0;
   padding: 40px 6% 60px 6%;
 }
 
@@ -326,7 +326,7 @@ button {
 /* ================= DYNAMIC PROMO CARDS SECTIONS ================= */
 .featured-banner-section {
   max-width: 1300px;
-  margin: 0 auto;
+  margin: 0 0;
   padding: 0 6% 80px 6%;
   display: grid;
   grid-template-columns: 1fr 1fr;
